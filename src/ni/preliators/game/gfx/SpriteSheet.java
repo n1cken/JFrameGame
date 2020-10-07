@@ -12,10 +12,10 @@ public class SpriteSheet {
 
     public int[] pixels;
 
-    public SpriteSheet(String path) {
-        BufferedImage image = null;
+    public SpriteSheet(String path) {  //Contructor for getting Spritesheet image
+        BufferedImage image = null;  //initialize
         try {
-            image = ImageIO.read(SpriteSheet.class.getResource(path));
+            image = ImageIO.read(SpriteSheet.class.getResource(path));  //Läser nästa dataenhet i strömmen.   //write() för att skriva i stream
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,11 +30,12 @@ public class SpriteSheet {
         pixels = image.getRGB(0, 0, width, height, null, 0, width);
 
         for ( int i = 0; i < pixels.length; i++ ) {
-            pixels[i] = (pixels[i] & 0xff)/64; //puttin 0, 1, 3, 4 into the spritesheet
+            pixels[i] = (pixels[i] & 0xff)/64; //put in 0, 1, 3, 4 into the spritesheet
+            System.out.print(pixels[i]);
         }
+
         for (int i = 0; i < 8; i++) {
             System.out.println(pixels[i]);
-
             //0
             //85
             //
